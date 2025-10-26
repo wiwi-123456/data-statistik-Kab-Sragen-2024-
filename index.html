@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data Statistik Kabupaten Sragen 2024</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://travelspromo.com/wp-content/uploads/2021/04/Ornamen-Replika-Gading-Gajah-Raksasa.-Foto-Gmap-Reno-Herdhiansyah-e1619776202522.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #002244;
+    }
+
+    .overlay {
+      background-color: rgba(255,255,255,0.85);
+      min-height: 100vh;
+      padding: 32px;
+      backdrop-filter: blur(3px);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #003366;
+      color: white;
+      padding: 14px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .logo-left img { width: 80px; }
+    .logo-right img { width: 100px; }
+
+    .header-content {
+      flex: 1;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .header h1 {
+      font-size: 1.7rem;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+    }
+
+    .subtext {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      color: #e6f0ff;
+      line-height: 1.5;
+    }
+
+    .nav {
+      margin: 24px 0;
+      text-align: center;
+    }
+
+    .nav button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      margin: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.15s;
+    }
+
+    .nav button:hover {
+      background-color: #002d6b;
+      transform: translateY(-2px);
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.95);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background: #003366;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f7fbff;
+    }
+
+    .footer {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: 20px;
+      background: rgba(255,255,255,0.9);
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    .footer a {
+      color: #004aad;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .author {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-left"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Seal_of_Sragen_Regency.svg/1556px-Seal_of_Sragen_Regency.svg.png" alt="Logo Sragen"></div>
+      <div class="header-content">
+        <h1>Data Statistik Kabupaten Sragen Tahun 2024</h1>
+        <div class="subtext">
+          Kabupaten Sragen terletak di bagian timur Provinsi Jawa Tengah dan berbatasan langsung dengan Provinsi Jawa Timur. 
+          Ibu kotanya adalah Sragen, yang dikenal sebagai “Bumi Sukowati” dan menjadi wilayah dengan potensi besar di bidang pertanian, industri kecil, serta pariwisata budaya. 
+          Sragen juga terkenal karena adanya Situs Manusia Purba Sangiran yang telah diakui sebagai Warisan Dunia oleh UNESCO.
+        </div>
+      </div>
+      <div class="logo-right"><img src="https://pertanian.uma.ac.id/wp-content/uploads/2019/12/UGM.png" alt="Logo UGM"></div>
+    </header>
+
+    <!-- Navigasi -->
+    <div class="nav">
+      <button onclick="showSection('penduduk')">📊 Jumlah Penduduk</button>
+      <button onclick="showSection('kesehatan')">🏥 Kesehatan</button>
+      <button onclick="showSection('pendidikan')">🎓 Pendidikan</button>
+      <button onclick="showSection('budaya')">🎭 Budaya</button>
+      <button onclick="showSection('pendapatan')">💰 Pendapatan</button>
+    </div>
+
+    <!-- Data Penduduk -->
+    <section id="penduduk" class="active">
+      <h2>Data Jumlah Penduduk Kabupaten Sragen (Jiwa) Tahun 2024</h2>
+      <table>
+        <thead>
+          <tr><th>Kecamatan</th><th>Laki-laki</th><th>Perempuan</th><th>Jumlah</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Total Kabupaten</strong></td><td>500.487</td><td>504.274</td><td>1.004.761</td></tr>
+          <tr><td>Gesi</td><td>11.701</td><td>11.869</td><td>23.570</td></tr>
+          <tr><td>Gemolong</td><td>26.759</td><td>26.746</td><td>53.505</td></tr>
+          <tr><td>Gondang</td><td>23.892</td><td>24.409</td><td>48.301</td></tr>
+          <tr><td>Jenar</td><td>15.211</td><td>14.861</td><td>30.072</td></tr>
+          <tr><td>Kalijambe</td><td>27.021</td><td>26.596</td><td>53.617</td></tr>
+          <tr><td>Karangmalang</td><td>37.480</td><td>38.454</td><td>75.934</td></tr>
+          <tr><td>Kedawung</td><td>33.579</td><td>34.298</td><td>67.877</td></tr>
+          <tr><td>Masaran</td><td>39.514</td><td>39.631</td><td>79.145</td></tr>
+          <tr><td>Miri</td><td>18.810</td><td>18.835</td><td>37.645</td></tr>
+          <tr><td>Mondokan</td><td>20.369</td><td>20.065</td><td>40.434</td></tr>
+          <tr><td>Ngrampal</td><td>21.525</td><td>22.300</td><td>43.825</td></tr>
+          <tr><td>Plupuh</td><td>26.910</td><td>26.434</td><td>53.344</td></tr>
+          <tr><td>Sambirejo</td><td>21.142</td><td>20.933</td><td>42.075</td></tr>
+          <tr><td>Sambungmacan</td><td>24.441</td><td>24.730</td><td>49.171</td></tr>
+          <tr><td>Sidoharjo</td><td>29.370</td><td>29.992</td><td>59.362</td></tr>
+          <tr><td>Sragen</td><td>34.530</td><td>36.010</td><td>70.540</td></tr>
+          <tr><td>Sukodono</td><td>17.131</td><td>17.224</td><td>34.355</td></tr>
+          <tr><td>Sumberlawang</td><td>25.688</td><td>25.874</td><td>51.562</td></tr>
+          <tr><td>Tangen</td><td>15.085</td><td>14.804</td><td>29.889</td></tr>
+          <tr><td>Tanon</td><td>30.329</td><td>30.209</td><td>60.538</td></tr>
+        </tbody>
+      </table>
+      <div class="footer">
+        Sumber: <a href="https://sragenkab.bps.go.id/" target="_blank">Badan Pusat Statistik Kabupaten Sragen (BPS)</a>
+      </div>
+    </section>
+
+    <!-- Data Kesehatan -->
+    <section id="kesehatan">
+      <h2>Data Fasilitas dan Tenaga Kesehatan</h2>
+      <table>
+        <thead><tr><th>Jenis Fasilitas</th><th>Jumlah</th></tr></thead>
+        <tbody>
+          <tr><td>Rumah Sakit</td><td>7</td></tr>
+          <tr><td>Puskesmas</td><td>25</td></tr>
+          <tr><td>Klinik dan Balai Pengobatan</td><td>45</td></tr>
+          <tr><td>Apotek</td><td>60</td></tr>
+          <tr><td>Tenaga Dokter</td><td>315</td></tr>
+          <tr><td>Tenaga Perawat</td><td>620</td></tr>
+          <tr><td>Bidan</td><td>410</td></tr>
+        </tbody>
+      </table>
+      <div class="footer">
+        Sumber: <a href="https://sragenkab.bps.go.id/indicator/30/123/1/fasilitas-kesehatan.html" target="_blank">Dinas Kesehatan Kabupaten Sragen (BPS)</a>
+      </div>
+    </section>
+
+    <!-- Data Pendidikan -->
+    <section id="pendidikan">
+      <h2>Data Pendidikan</h2>
+      <table>
+        <thead><tr><th>Jenis Sekolah</th><th>Jumlah</th></tr></thead>
+        <tbody>
+          <tr><td>TK/PAUD</td><td>350</td></tr>
+          <tr><td>SD/MI</td><td>420</td></tr>
+          <tr><td>SMP/MTs</td><td>180</td></tr>
+          <tr><td>SMA/SMK/MA</td><td>95</td></tr>
+        </tbody>
+      </table>
+      <div class="footer">
+        Sumber: <a href="https://sragenkab.bps.go.id/" target="_blank">BPS Kabupaten Sragen (2024)</a>
+      </div>
+    </section>
+
+    <!-- Data Budaya -->
+    <section id="budaya">
+      <h2>Data Budaya dan Pariwisata</h2>
+      <table>
+        <thead><tr><th>Jenis Kegiatan</th><th>Jumlah</th></tr></thead>
+        <tbody>
+          <tr><td>Sanggar Seni</td><td>58</td></tr>
+          <tr><td>Festival Budaya</td><td>12</td></tr>
+          <tr><td>Objek Wisata</td><td>25</td></tr>
+          <tr><td>Kelompok Seni Tradisional</td><td>44</td></tr>
+        </tbody>
+      </table>
+      <div class="footer">
+        Sumber: <a href="https://sragenkab.go.id/" target="_blank">Dinas Pariwisata dan Kebudayaan Sragen</a>
+      </div>
+    </section>
+
+    <!-- Data Pendapatan -->
+    <section id="pendapatan">
+      <h2>Data Pendapatan dan Ekonomi</h2>
+      <table>
+        <thead><tr><th>Indikator</th><th>Nilai</th></tr></thead>
+        <tbody>
+          <tr><td>PDRB (Miliar Rupiah)</td><td>25.600</td></tr>
+          <tr><td>PDRB per Kapita (Ribu Rupiah)</td><td>25.500</td></tr>
+          <tr><td>Pertumbuhan Ekonomi (%)</td><td>5.3</td></tr>
+          <tr><td>Tingkat Kemiskinan (%)</td><td>10.2</td></tr>
+        </tbody>
+      </table>
+      <div class="footer">
+        Sumber: <a href="https://sragenkab.bps.go.id/indicator/52/112/1/produk-domestik-regional-bruto.html" target="_blank">Badan Pusat Statistik Kabupaten Sragen</a>
+      </div>
+    </section>
+
+    <div class="author">
+      Dari : Alfian Bayu Riswanda Fakultas Geografi UGM
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
