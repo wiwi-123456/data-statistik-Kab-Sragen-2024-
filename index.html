@@ -1,173 +1,251 @@
 <!DOCTYPE html>
+<!-- Mendefinisikan tipe dokumen HTML5 -->
 <html lang="id">
+<!-- Membuka elemen html dengan atribut bahasa Indonesia -->
 <head>
+<!-- Membuka elemen head yang berisi meta data dan informasi dokumen -->
   <meta charset="UTF-8" />
+    <!-- Menetapkan encoding karakter dokumen ke UTF-8 untuk dukungan karakter internasional -->
   <title>Data Statistik Kabupaten Sragen 2024</title>
+  <!-- Menetapkan judul halaman web yang muncul di tab browser -->
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Mengatur viewport agar halaman responsif pada perangkat mobile, lebar viewport sama dengan lebar perangkat dan zoom awal 1 -->
   <style>
+   /* Membuka blok CSS untuk styling internal halaman */
     body {
       font-family: "Segoe UI", Arial, sans-serif;
+      /* Mengatur jenis font utama halaman ke Segoe UI, jika tidak ada fallback ke Arial, jika tidak ada fallback ke sans-serif */
       margin: 0;
+      /* Menghilangkan margin default pada elemen body */
       padding: 0;
+      /* Menghilangkan padding default pada elemen body */
       background: url('https://travelspromo.com/wp-content/uploads/2021/04/Ornamen-Replika-Gading-Gajah-Raksasa.-Foto-Gmap-Reno-Herdhiansyah-e1619776202522.jpg') no-repeat center center fixed;
+      /* Mengatur latar belakang halaman menggunakan gambar dari URL yang diberikan,
+         tanpa pengulangan gambar,
+         diposisikan di tengah horizontal dan vertikal,
+         dan posisi latar belakang tetap saat halaman digulir (fixed) */
       background-size: cover;
+      /* Membuat gambar latar belakang menutupi seluruh area halaman tanpa merubah rasio aspek gambar */
       color: #002244;
+      /* Mengatur warna teks utama halaman ke warna biru tua dengan kode hex #002244 */
     }
 
     .overlay {
       background-color: rgba(255,255,255,0.85);
+      /* Membuat warna latar belakang elemen dengan kelas overlay menjadi putih transparan (85% opacity) menggunakan format RGBA */
       min-height: 100vh;
+       /* Menetapkan tinggi minimum elemen overlay sama dengan tinggi viewport (layar perangkat) */
       padding: 32px;
+      /* Memberikan ruang dalam (padding) sebesar 32 piksel di dalam elemen overlay */
       backdrop-filter: blur(3px);
+      /* Memberikan efek blur sebanyak 3 piksel pada latar belakang di balik elemen overlay, membuat gambar background terlihat buram di area overlay */
     }
 
     .header {
       display: flex;
+      /* Mengatur elemen header menggunakan model flexbox untuk tata letak fleksibel */
       align-items: center;
+      /* Mengatur agar semua item flex di header disejajarkan secara vertikal di tengah */
       justify-content: space-between;
+      /* Mengatur jarak antar item flex agar tersebar merata dengan ruang di antara mereka */
       background-color: #003366;
+       /* Memberikan warna latar belakang biru tua */
       color: white;
-      padding: 14px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-    }
+       /* Mengatur warna teks menjadi putih */
+  padding: 14px;
+  /* Memberikan ruang dalam sepanjang 14 piksel di semua sisi */
+  border-radius: 10px;
+  /* Membuat sudut elemen header menjadi membulat dengan radius 10 piksel */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  /* Memberikan bayangan lembut di bawah elemen header dengan offset vertikal 4px, blur 10px dan warna hitam transparan 25% */
+}
 
-    .logo-left img { width: 80px; }
-    .logo-right img { width: 100px; }
+.logo-left img { width: 80px; }
+/* Mengatur lebar gambar logo di kiri menjadi 80 piksel */
 
-    .header-content {
-      flex: 1;
-      text-align: center;
-      padding: 0 10px;
-    }
+.logo-right img { width: 100px; }
+/* Mengatur lebar gambar logo di kanan menjadi 100 piksel */
 
-    .header h1 {
-      font-size: 1.7rem;
-      margin: 0;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.25);
-    }
+.header-content {
+  flex: 1;
+  /* Membuat konten header mengambil ruang fleksibel yang tersisa */
+  text-align: center;
+  /* Mengatur teks di tengah secara horisontal */
+  padding: 0 10px;
+  /* Memberikan padding horizontal kiri dan kanan masing-masing 10 piksel */
+}
 
-    .subtext {
-      margin-top: 6px;
-      font-size: 0.95rem;
-      color: #e6f0ff;
-      line-height: 1.5;
-    }
+.header h1 {
+  font-size: 1.7rem;
+  /* Mengatur ukuran font judul header menjadi 1.7 rem */
+  margin: 0;
+  /* Menghilangkan margin default pada judul */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  /* Memberikan bayangan halus pada teks judul untuk kontras lebih baik */
+}
 
-    .nav {
-      margin: 24px 0;
-      text-align: center;
-    }
+.subtext {
+  margin-top: 6px;
+  /* Memberikan jarak atas sebesar 6 piksel di bawah judul */
+  font-size: 0.95rem;
+  /* Mengatur ukuran font subteks sedikit lebih kecil dari judul */
+  color: #e6f0ff;
+  /* Memberikan warna biru muda pada teks subteks */
+  line-height: 1.5;
+  /* Mengatur jarak antar baris agar mudah dibaca */
+}
 
-    .nav button {
-      background-color: #004aad;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      margin: 5px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.25s, transform 0.15s;
-    }
+.nav {
+  margin: 24px 0;
+  /* Memberikan jarak atas dan bawah sebesar 24 piksel di elemen navigasi */
+  text-align: center;
+  /* Mengatur isi navigasi ke tengah secara horizontal */
+}
 
-    .nav button:hover {
-      background-color: #002d6b;
-      transform: translateY(-2px);
-    }
+.nav button {
+  background-color: #004aad;
+  /* Memberikan warna tombol biru sedang */
+  color: white;
+  /* Warna teks tombol putih */
+  border: none;
+  /* Menghilangkan border default tombol */
+  padding: 10px 18px;
+  /* Memberikan padding atas bawah 10px dan kiri kanan 18px */
+  border-radius: 6px;
+  /* Membuat ujung tombol membulat dengan radius 6 piksel */
+  margin: 5px;
+  /* Memberikan jarak antar tombol sebesar 5 piksel */
+  font-size: 1rem;
+  /* Ukuran font sesuai standar */
+  font-weight: 600;
+  /* Membuat teks tombol tebal */
+  cursor: pointer;
+  /* Mengubah kursor saat hover menjadi pointer */
+  transition: background 0.25s, transform 0.15s;
+  /* Memberikan efek transisi halus saat perubahan warna latar dan transformasi */
+}
 
-    section {
-      display: none;
-      animation: fadeIn 0.4s ease-in-out;
-    }
+.nav button:hover {
+  background-color: #002d6b;
+  /* Mengubah warna tombol menjadi biru lebih gelap saat hover */
+  transform: translateY(-2px);
+  /* Memindahkan tombol ke atas 2 piksel saat hover untuk efek interaktif */
+}
+section {
+  display: none; /* Semua elemen <section> disembunyikan secara default */
+  animation: fadeIn 0.4s ease-in-out; /* Efek animasi saat section muncul, durasi 0.4 detik */
+}
 
-    section.active {
-      display: block;
-    }
+section.active {
+  display: block; /* Menampilkan section yang memiliki class "active" */
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Awal animasi: elemen transparan */
+    transform: translateY(10px); /* Sedikit turun 10px dari posisi awal */
+  }
+  to {
+    opacity: 1; /* Akhir animasi: elemen sepenuhnya terlihat */
+    transform: translateY(0); /* Kembali ke posisi semula */
+  }
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: rgba(255,255,255,0.95);
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-      margin-top: 10px;
-    }
+table {
+  width: 100%; /* Tabel memenuhi lebar area yang tersedia */
+  border-collapse: collapse; /* Menggabungkan batas antar sel agar tampak rapi */
+  background: rgba(255,255,255,0.95); /* Warna latar putih agak transparan (95%) */
+  border-radius: 8px; /* Sudut tabel dibuat melengkung */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12); /* Menambahkan bayangan lembut di bawah tabel */
+  margin-top: 10px; /* Jarak antara tabel dan elemen di atasnya */
+}
 
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
+th, td {
+  border: 1px solid #ccc; /* Garis batas abu-abu di sekitar setiap sel */
+  padding: 10px; /* Jarak antara isi sel dan garis tepinya */
+  text-align: center; /* Teks di dalam sel disejajarkan ke tengah */
+}
 
-    th {
-      background: #003366;
-      color: white;
-      text-transform: uppercase;
-    }
+th {
+  background: #003366; /* Warna latar biru tua pada header tabel */
+  color: white; /* Warna teks putih agar kontras */
+  text-transform: uppercase; /* Semua huruf diubah menjadi kapital */
+}
 
-    tr:nth-child(even) {
-      background-color: #f7fbff;
-    }
+tr:nth-child(even) {
+  background-color: #f7fbff; /* Baris genap diberi warna biru muda agar mudah dibaca */
+}
 
-    .footer {
-      text-align: right;
-      font-size: 0.9rem;
-      color: #333;
-      margin-top: 20px;
-      background: rgba(255,255,255,0.9);
-      padding: 10px;
-      border-radius: 6px;
-    }
+.footer {
+  text-align: right; /* Teks footer rata kanan */
+  font-size: 0.9rem; /* Ukuran teks sedikit lebih kecil dari normal */
+  color: #333; /* Warna teks abu-abu gelap */
+  margin-top: 20px; /* Jarak atas antara footer dan elemen sebelumnya */
+  background: rgba(255,255,255,0.9); /* Latar putih agak transparan (90%) */
+  padding: 10px; /* Ruang dalam di sekitar isi footer */
+  border-radius: 6px; /* Sudut footer sedikit membulat */
+}
 
-    .footer a {
-      color: #004aad;
-      text-decoration: none;
-      font-weight: 600;
-    }
+.footer a {
+  color: #004aad; /* Warna teks tautan biru cerah */
+  text-decoration: none; /* Menghilangkan garis bawah default pada tautan */
+  font-weight: 600; /* Teks tautan dibuat tebal (semi-bold) */
+}
 
-    .footer a:hover {
-      text-decoration: underline;
-    }
+.footer a:hover {
+  text-decoration: underline; /* Saat kursor diarahkan ke tautan, muncul garis bawah */
+}
 
-    .author {
-      text-align: right;
-      font-size: 0.9rem;
-      color: #333;
-      margin-top: 8px;
-    }
+.author {
+  text-align: right; /* Teks penulis rata kanan */
+  font-size: 0.9rem; /* Ukuran teks sedikit lebih kecil */
+  color: #333; /* Warna teks abu-abu gelap */
+  margin-top: 8px; /* Jarak kecil di atas elemen ini */
+}
   </style>
-</head>
-<body>
-  <div class="overlay">
-    <!-- Header -->
-    <header class="header">
-      <div class="logo-left"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Seal_of_Sragen_Regency.svg/1556px-Seal_of_Sragen_Regency.svg.png" alt="Logo Sragen"></div>
-      <div class="header-content">
-        <h1>Data Statistik Kabupaten Sragen Tahun 2024</h1>
-        <div class="subtext">
-          Kabupaten Sragen terletak di bagian timur Provinsi Jawa Tengah dan berbatasan langsung dengan Provinsi Jawa Timur. 
-          Ibu kotanya adalah Sragen, yang dikenal sebagai “Bumi Sukowati” dan menjadi wilayah dengan potensi besar di bidang pertanian, industri kecil, serta pariwisata budaya. 
-          Sragen juga terkenal karena adanya Situs Manusia Purba Sangiran yang telah diakui sebagai Warisan Dunia oleh UNESCO.
-        </div>
-      </div>
-      <div class="logo-right"><img src="https://pertanian.uma.ac.id/wp-content/uploads/2019/12/UGM.png" alt="Logo UGM"></div>
-    </header>
+ </head> 
+<body> 
+  <div class="overlay"> <!-- Bagian overlay yang membuat latar belakang buram dan elemen konten bercahaya -->
+text
+<!-- Header -->
+<header class="header">
+  <!-- Bagian header utama dengan logo kiri, konten tengah, logo kanan -->
+  <div class="logo-left"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Seal_of_Sragen_Regency.svg/1556px-Seal_of_Sragen_Regency.svg.png" alt="Logo Sragen"></div>
+  <!-- Logo kabupaten Sragen di sebelah kiri -->
 
-    <!-- Navigasi -->
-    <div class="nav">
-      <button onclick="showSection('penduduk')">📊 Jumlah Penduduk</button>
-      <button onclick="showSection('kesehatan')">🏥 Kesehatan</button>
-      <button onclick="showSection('pendidikan')">🎓 Pendidikan</button>
-      <button onclick="showSection('budaya')">🎭 Budaya</button>
-      <button onclick="showSection('pendapatan')">💰 Pendapatan</button>
+  <div class="header-content">
+    <h1>Data Statistik Kabupaten Sragen Tahun 2024</h1>
+    <!-- Judul utama halaman -->
+    <div class="subtext">
+      Kabupaten Sragen terletak di bagian timur Provinsi Jawa Tengah dan berbatasan langsung dengan Provinsi Jawa Timur. 
+      Ibu kotanya adalah Sragen, yang dikenal sebagai “Bumi Sukowati” dan menjadi wilayah dengan potensi besar di bidang pertanian, industri kecil, serta pariwisata budaya. 
+      Sragen juga terkenal karena adanya Situs Manusia Purba Sangiran yang telah diakui sebagai Warisan Dunia oleh UNESCO.
+      <!-- Deskripsi singkat geografis, potensi ekonomi dan budaya kabupaten Sragen -->
     </div>
+  </div>
+
+  <div class="logo-right"><img src="https://pertanian.uma.ac.id/wp-content/uploads/2019/12/UGM.png" alt="Logo UGM"></div>
+  <!-- Logo Universitas Gadjah Mada di sebelah kanan -->
+</header>
+
+<!-- Navigasi -->
+<div class="nav">
+  <!-- Bagian navigasi berupa tombol yang mengontrol tampilan data -->
+  <button onclick="showSection('penduduk')">📊 Jumlah Penduduk</button>
+  <!-- Tombol untuk menampilkan data penduduk -->
+
+  <button onclick="showSection('kesehatan')">🏥 Kesehatan</button>
+  <!-- Tombol untuk menampilkan data kesehatan -->
+
+  <button onclick="showSection('pendidikan')">🎓 Pendidikan</button>
+  <!-- Tombol untuk menampilkan data pendidikan -->
+
+  <button onclick="showSection('budaya')">🎭 Budaya</button>
+  <!-- Tombol untuk menampilkan data budaya -->
+
+  <button onclick="showSection('pendapatan')">💰 Pendapatan</button>
+  <!-- Tombol untuk menampilkan data pendapatan -->
+</div>
 
     <!-- Data Penduduk -->
     <section id="penduduk" class="active">
@@ -204,6 +282,11 @@
         Sumber: <a href="https://sragenkab.bps.go.id/" target="_blank">Badan Pusat Statistik Kabupaten Sragen (BPS)</a>
       </div>
     </section>
+    <!-- PENJELASAN SECTION 1:
+         Bagian ini menampilkan data jumlah penduduk Kabupaten Sragen tahun 2024 dalam bentuk tabel.
+         Tabel berisi kolom kecamatan, jumlah laki-laki, perempuan, dan total penduduk.
+         Tombol navigasi di atas memungkinkan pengguna berpindah ke bagian data lainnya.
+         Warna dan gaya tabel mengikuti tema biru-putih agar mudah dibaca.
 
     <!-- Data Kesehatan -->
     <section id="kesehatan">
@@ -224,6 +307,12 @@
         Sumber: <a href="https://sragenkab.bps.go.id/indicator/30/123/1/fasilitas-kesehatan.html" target="_blank">Dinas Kesehatan Kabupaten Sragen (BPS)</a>
       </div>
     </section>
+     <!-- PENJELASAN SECTION 2:
+         Bagian ini menampilkan jumlah fasilitas kesehatan di Kabupaten Sragen, seperti rumah sakit, puskesmas, klinik, dan apotek.
+         Juga mencantumkan jumlah tenaga kesehatan (dokter, perawat, bidan).
+         Data bersumber dari Dinas Kesehatan/BPS Sragen.
+         Tabel dirancang agar informatif dan mudah dibaca oleh pengguna.
+    -->
 
     <!-- Data Pendidikan -->
     <section id="pendidikan">
@@ -241,6 +330,11 @@
         Sumber: <a href="https://sragenkab.bps.go.id/" target="_blank">BPS Kabupaten Sragen (2024)</a>
       </div>
     </section>
+     <!-- PENJELASAN SECTION 3:
+         Bagian ini berisi data pendidikan di Sragen yang mencakup jumlah sekolah berdasarkan jenjang.
+         Data ditampilkan dalam format tabel dua kolom: jenis sekolah dan jumlah unit.
+         Tujuan utamanya adalah menunjukkan kondisi pendidikan formal di wilayah Sragen.
+    -->
 
     <!-- Data Budaya -->
     <section id="budaya">
@@ -258,6 +352,11 @@
         Sumber: <a href="https://sragenkab.go.id/" target="_blank">Dinas Pariwisata dan Kebudayaan Sragen</a>
       </div>
     </section>
+     <!-- PENJELASAN SECTION 4:
+         Menampilkan data potensi budaya dan pariwisata Kabupaten Sragen,
+         seperti jumlah sanggar seni, festival budaya, objek wisata, dan kelompok seni tradisional.
+         Tabel ini memperlihatkan kekayaan budaya daerah yang menjadi daya tarik wisata lokal.
+    -->
 
     <!-- Data Pendapatan -->
     <section id="pendapatan">
@@ -275,6 +374,11 @@
         Sumber: <a href="https://sragenkab.bps.go.id/indicator/52/112/1/produk-domestik-regional-bruto.html" target="_blank">Badan Pusat Statistik Kabupaten Sragen</a>
       </div>
     </section>
+     <!-- PENJELASAN SECTION 5:
+         Bagian ini menampilkan indikator ekonomi penting seperti PDRB, PDRB per kapita,
+         laju pertumbuhan ekonomi, dan tingkat kemiskinan.
+         Informasi ini memberikan gambaran kondisi ekonomi Sragen tahun 2024.
+    -->
 
     <div class="author">
       Dari : Alfian Bayu Riswanda Fakultas Geografi UGM
@@ -288,5 +392,11 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   </script>
+  <!-- PENJELASAN SCRIPT:
+       Fungsi showSection(id) berfungsi menampilkan satu bagian (section) tertentu berdasarkan tombol yang diklik.
+       Semua section disembunyikan terlebih dahulu, lalu section dengan ID yang sesuai akan ditampilkan.
+       window.scrollTo membuat halaman otomatis bergulir ke atas dengan efek halus.
+  -->
 </body>
 </html>
+
